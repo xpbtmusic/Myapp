@@ -11,7 +11,8 @@ import {
   Text,
   View
 } from 'react-native';
-var chineseLunar = require("lunar-calendar");
+import chineseLunar from './js/LunarCalendar'
+
 import Shichen from './js/Shichen'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
