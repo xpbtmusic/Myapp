@@ -70,13 +70,22 @@ export default class App extends Component<{}> {
       console.log(lunar_);
       let year_=lunar_.GanZhiYear;
       let dizhi_year=year_.substring(1,2);
-
-      let shi_=Shichen.time2shiChen2(hour,minu)[0];
-      let dizhi_shi=Shichen.time2YongShu[shi_];
+      let hour_string=(hour+"")+minu;
+      let dizhi_shi=Shichen.getHourYongShu(hour_string)[1];
+      console.log("dizhi shi"+dizhi_shi)
+     // let dizhi_shi=Shichen.time2YongShu[shi_];
 
       console.log("ganzhi_year"+lunar_.GanZhiYear+"--"+dizhi_year);
 
       console.log("ti shu："+" nian:"+Shichen.time2YongShu[dizhi_year]+" month:"+lunar_.lunarMonth+" day:"+lunar_.lunarDay+" dizhi_hour:"+dizhi_shi);
+
+      let shangTishu= (Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay)%8;
+      let xiaTishu= (Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay+dizhi_shi)%8;
+      let dongyao=((Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay+dizhi_shi))%6;
+
+      console.log("shang_gua "+Shichen.xianTianBagua[shangTishu+'']+" xia_gua"+Shichen.xianTianBagua[xiaTishu+'']+" dongyao"+dongyao);
+
+
 
   }
 
