@@ -50,17 +50,30 @@ export default class App extends Component<{}> {
       let nowYear=nowDate.getFullYear();
       let nowMonth=(nowDate.getMonth()+1);
       let nowDay=nowDate.getDate();
+      let nowTime=nowDate.toLocaleTimeString();
       console.log("date year："+nowYear);
       console.log("date month："+nowMonth);
       console.log("date day："+nowDay);
+      console.log("date time："+nowTime);
 
-
+      let timeString=nowTime.split(":");
+      let hour=timeString[0]
+      let minu=timeString[1]
+      let sec=timeString[2]
+      console.log("date time hour："+hour);
+      console.log("date time minu："+minu);
+      console.log("date time sec："+sec);
       var nowDate_ = new Date(nowYear, nowMonth, nowDay);
       let lunar_ = chineseLunar.solarToLunar(nowDate_.getFullYear(),nowDate_.getMonth(),nowDate_.getDate());
       let year_=lunar_.GanZhiYear;
       let dizhi_year=year_.substring(1,2);
+
+      let shi_=Shichen.time2shiChen2(hour,minu)[0];
+      let dizhi_shi=Shichen.time2YongShu[shi_];
+
       console.log("ganzhi_year"+lunar_.GanZhiYear+"--"+dizhi_year);
-      console.log("ti shu："+" nian:"+Shichen.time2YongShu[dizhi_year]+" month:"+lunar_.lunarMonth+" day:"+lunar_.lunarDay);
+
+      console.log("ti shu："+" nian:"+Shichen.time2YongShu[dizhi_year]+" month:"+lunar_.lunarMonth+" day:"+lunar_.lunarDay+" dizhi_hour:"+dizhi_shi);
 
   }
 
