@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 var chineseLunar = require("lunar-calendar");
-import shichen from './js/shichen'
+import Shichen from './js/Shichen'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -43,9 +43,9 @@ export default class App extends Component<{}> {
       //var lunar = chineseLunar.solarToLunar(new Date(1982, 0, 29));
       var lunar = chineseLunar.solarToLunar(solarDate.getFullYear(),solarDate.getMonth(),solarDate.getDate());
       console.log(lunar);   //一九八二年腊月十六
-      console.log("SHI CHEN:"+shichen.time2shiChen2(12,45));
-      let shi=shichen.time2shiChen2(12,45)[0];
-      console.log("SHI CHEN yongshu:"+shichen.time2YongShu[shi]);
+      console.log("SHI CHEN:"+Shichen.time2shiChen2(12,45));
+      let shi=Shichen.time2shiChen2(12,45)[0];
+      console.log("SHI CHEN yongshu:"+Shichen.time2YongShu[shi]);
 
   }
 
