@@ -64,7 +64,10 @@ export default class App extends Component<{}> {
       console.log("date time minu："+minu);
       console.log("date time sec："+sec);
       var nowDate_ = new Date(nowYear, nowMonth, nowDay);
-      let lunar_ = chineseLunar.solarToLunar(nowDate_.getFullYear(),nowDate_.getMonth(),nowDate_.getDate());
+      var month_=nowDate_.getMonth();
+      console.log("month_"+month_)
+      let lunar_ = chineseLunar.solarToLunar(nowDate_.getFullYear(),month_,nowDate_.getDate());
+      console.log(lunar_);
       let year_=lunar_.GanZhiYear;
       let dizhi_year=year_.substring(1,2);
 
