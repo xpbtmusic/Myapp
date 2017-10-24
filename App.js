@@ -84,6 +84,13 @@ export default class App extends Component<{}> {
       let xiaTishu= (Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay+dizhi_shi)%8;
       let dongyao=((Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay+dizhi_shi))%6;
 
+      if(shangTishu==0){//8 倍数
+        shangTishu=8;
+      }
+      if(xiaTishu===0){
+        xiaTishu=8;
+      }
+      console.log("shang——tishu"+shangTishu);
       console.log("shang_gua "+Shichen.xianTianBagua[shangTishu+'']+" xia_gua"+Shichen.xianTianBagua[xiaTishu+'']+" dongyao"+dongyao);
 
 
