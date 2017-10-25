@@ -80,9 +80,12 @@ export default class App extends Component<{}> {
 
       console.log("ti shu："+" nian:"+Shichen.time2YongShu[dizhi_year]+" month:"+lunar_.lunarMonth+" day:"+lunar_.lunarDay+" dizhi_hour:"+dizhi_shi);
 
-      let shangTishu= (Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay)%8;
-      let xiaTishu= (Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay+dizhi_shi)%8;
-      let dongyao=((Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay+dizhi_shi))%6;
+      let shangTiChengShu=Shichen.time2YongShu[dizhi_year]+lunar_.lunarMonth+lunar_.lunarDay;
+      let xiaTiChengShu=shangTiChengShu+dizhi_shi;
+
+      let shangTishu= (shangTiChengShu)%8;
+      let xiaTishu= (xiaTiChengShu)%8;
+      let dongyao=((xiaTiChengShu))%6;
 
       if(shangTishu==0){//8 倍数
         shangTishu=8;
@@ -92,6 +95,8 @@ export default class App extends Component<{}> {
       }
       console.log("shang——tishu"+shangTishu);
       console.log("shang_gua "+Shichen.xianTianBagua[shangTishu+'']+" xia_gua"+Shichen.xianTianBagua[xiaTishu+'']+" dongyao"+dongyao);
+      alert("shang_gua "+Shichen.xianTianBagua[shangTishu+'']+" xia_gua"+Shichen.xianTianBagua[xiaTishu+'']+" dongyao"+dongyao);
+
 
 
 
